@@ -5,25 +5,20 @@ import { useState } from 'react';
 const fallbackData: Array<Zod.infer<typeof schemas.Breed>> = [];
 const columnHelper = createColumnHelper<Zod.infer<typeof schemas.Breed>>();
 const columns = [
-  columnHelper.accessor('breed', {
-    header: 'Breed',
-    cell: (info) => info.getValue(),
+  columnHelper.accessor((row) => row.breed, {
+    id: 'Breed',
   }),
-  columnHelper.accessor('country', {
+  columnHelper.accessor((row) => row.country, {
     header: 'Country',
-    cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor('origin', {
+  columnHelper.accessor((row) => row.origin, {
     header: 'Origin',
-    cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor('coat', {
+  columnHelper.accessor((row) => row.coat, {
     header: 'Coat',
-    cell: (info) => info.getValue(),
   }),
-  columnHelper.accessor('pattern', {
+  columnHelper.accessor((row) => row.pattern, {
     header: 'Pattern',
-    cell: (info) => info.getValue(),
   }),
 ];
 
