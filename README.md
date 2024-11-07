@@ -20,6 +20,8 @@ Technologies used in this demo:
 - [Playwright](https://playwright.dev/)
   - Playwright is a modern end-to-end (e2e) testing and web app testing framework for Node.js, .NET, Python, and Java.
 
+<img src="./docs/NX-Monorepo.png">
+
 ## Run tasks
 
 To run the dev server for your app, use:
