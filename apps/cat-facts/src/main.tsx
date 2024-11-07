@@ -8,12 +8,16 @@ import './styles.css';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: false,
-      refetchOnWindowFocus: false,
+      refetchOnMount: false, // default: true
+      refetchOnWindowFocus: false, // default: true
+      refetchOnReconnect: false, // default: true
+      refetchInterval: false, // default: false
+      refetchIntervalInBackground: false, // default: false
+      retryOnMount: false, // default: true
+      staleTime: Number.POSITIVE_INFINITY, // default: 0
     },
   },
 });
-
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

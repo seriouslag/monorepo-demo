@@ -31,11 +31,13 @@ export const CatTable = () => {
     pageSize: 10,
   });
 
-  const { data, isError, error, refetch } = catFactsZodiosHooks.useGetBreeds({
+  const { data, isLoading, isError, error, refetch } = catFactsZodiosHooks.useGetBreeds({
     queries: {
       limit: pagination.pageSize,
       page: pagination.pageIndex,
     },
+  }, {
+    keepPreviousData: true,
   });
 
   const breeds = data?.data || [];
@@ -59,6 +61,10 @@ export const CatTable = () => {
   const totalRows = data?.total ?? 0;
   const startIndex = currentPage * pageSize - pageSize;
   const endIndex = startIndex + rowsOnPage;
+
+  if (isLoading && !data) {
+    return <div>Loading...</div>;
+  }
 
   if (isError) {
     return (
@@ -121,6 +127,7 @@ export const CatTable = () => {
           ))}
         </tfoot>
       </table>
+      {isLoading && <div>Loading...</div>}
       <div className="flex justify-between items-center px-4 py-3">
         <div className="text-sm text-slate-500">
           Showing{' '}
