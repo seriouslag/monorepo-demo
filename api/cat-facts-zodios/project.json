@@ -1,0 +1,28 @@
+{
+  "name": "cat-facts-zodios",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "api/cat-facts-zodios/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "generate": {
+      "inputs": ["{projectRoot}/api/**"],
+      "outputs": ["{projectRoot}/src/generated/client.ts"],
+      "executor": "nx:run-script",
+      "options": {
+        "script": "generate"
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "dependsOn": ["generate"],
+      "options": {
+        "outputPath": "dist/api/cat-facts-zodios",
+        "main": "api/cat-facts-zodios/src/index.ts",
+        "tsConfig": "api/cat-facts-zodios/tsconfig.lib.json",
+        "assets": ["api/cat-facts-zodios/*.md"]
+      }
+    }
+  }
+}

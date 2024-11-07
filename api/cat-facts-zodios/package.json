@@ -1,0 +1,16 @@
+{
+  "name": "@my-monorepo-demo/cat-facts-zodios",
+  "version": "0.0.1",
+  "dependencies": {
+    "@zodios/core": "10.9.6",
+    "zod": "3.23.8",
+    "@zodios/react": "^10.4.5"
+  },
+  "scripts": {
+    "generate": "mkdir -p ./src/generated && openapi-zod-client ./api/api.yaml -o ./src/generated/client.ts --export-schemas --with-deprecated --with-description --with-docs --export-types"
+  },
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "typings": "./index.d.ts",
+  "private": true
+}

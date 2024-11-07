@@ -1,0 +1,9 @@
+{
+  "name": "cat-facts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/cat-facts/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project cat-facts --web",
+  "targets": {}
+}
